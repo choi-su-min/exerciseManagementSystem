@@ -8,7 +8,7 @@ public class ExerciseManagement {
 		int num=0;
 		Scanner input = new Scanner(System.in);
 		
-		while(num != 6) {
+		while(num != 5) {
 			System.out.println("1. division way");
 			System.out.println("2. meal way");
 			System.out.println("3. position way");
