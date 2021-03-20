@@ -14,7 +14,7 @@ public class ExerciseManagement {
 			System.out.println("3. position way");
 			System.out.println("4. Show a menu");
 			System.out.println("5. exit");
-			System.out.println("select one number between 1-6:");
+			System.out.println("select one number between 1-5:");
 			num=input.nextInt();
 			if(num==1) {
 				divisionway();
