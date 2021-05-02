@@ -3,8 +3,11 @@ package exerciseManagementSystem;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import exercise.BackExercise;
 import exercise.ChestExercise;
 import exercise.Exercise;
+import exercise.ExerciseKind;
+import exercise.ShoulderExercise;
 
 public class ExerciseClassmanager {
 	ArrayList<Exercise> exercises = new ArrayList<Exercise>(); 
@@ -19,30 +22,31 @@ public class ExerciseClassmanager {
 		Exercise exercise;
 		
 		while(kind != 1 && kind !=2 && kind !=3) {
-			System.out.print("1 for Chest :");
-			System.out.print("2 for Shoulder :");
-			System.out.print("3 for back :");
-			System.out.print("Select num for Exercise Kind between 1, 2 and 3 :");
+			System.out.println("1 for Chest :");
+			System.out.println("2 for Shoulder :");
+			System.out.println("3 for back :");
+			System.out.println("Select num 1, 2 and 3 for Exercise Kind :");
 			kind = input.nextInt();
 			if(kind == 1) {
-				exercise = new ChestExercise();
+				exercise = new ChestExercise(ExerciseKind.Chest);
 				exercise.getExerciseInput(input);
 				exercises.add(exercise); //추가한 운동들을 저장
 				break;
 			}
 			else if(kind == 2) {
-				exercise = new Exercise();
+				exercise = new ShoulderExercise(ExerciseKind.Shoulder);
 				exercise.getExerciseInput(input);
 				exercises.add(exercise); //추가한 운동들을 저장
 				break;
 			}
 			else if(kind == 3) {
-				exercise = new Exercise();
+				exercise = new BackExercise(ExerciseKind.Back);
+				exercise.getExerciseInput(input);
 				exercises.add(exercise); //추가한 운동들을 저장
 				break;
 			}
 			else {
-				System.out.print("Select num for Exercise Kind between 1, 2 and 3 :");
+				System.out.print("Select num 1, 2 and 3 for Exercise Kind :");
 			}
 		}
 	
