@@ -19,7 +19,7 @@ public interface ExerciseInput {
 	
 	public void setExercisePart(Scanner input);		//0514 운동매니저에서 끌어옴.
 	
-	public void setExerciseSet(Scanner input);		//운동매니저에서 끌어옴.
+	public void setExerciseSet(Scanner input);		
 	
-	public void setExerciseTimes(Scanner input);	//운동매니저에서 끌어옴.
+	public void setExerciseTimes(Scanner input);	
 }
