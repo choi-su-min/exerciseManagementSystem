@@ -1,11 +1,17 @@
 package exercise;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
 import exception.PartFormatException;
 
-public abstract class Exercise implements ExerciseInput {
+public abstract class Exercise implements ExerciseInput, Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7092790675176238813L;
+	
 	protected ExerciseKind Kind = ExerciseKind.Chest;
 	protected String part;
 	protected int set;
@@ -47,7 +53,7 @@ public abstract class Exercise implements ExerciseInput {
 		return part;
 	}
 
-	public void setPart(String part) throws PartFormatException{	//0514 Part를 W와 H를 통해 평일과 주말을 구분 W를 포함하게 입력을 해주도록 하고 W가 입력되지 않으면 예외처리. 
+	public void setPart(String part) throws PartFormatException{	 
 		if(!part.contains("W")) {
 			throw new PartFormatException();
 		}
@@ -72,12 +78,12 @@ public abstract class Exercise implements ExerciseInput {
 	
 	public abstract void printInfo();	
 	
-	public void setExercisePart(Scanner input) {		//0514 part를 edit하는 기능을 담당하는 함수
+	public void setExercisePart(Scanner input) {		
 		String part = "";
 		while(!part.contains("W")) {
 			System.out.println("Exercise part : ");
 			part = input.next();
-			try {										//0514 Part를 W와 H를 통해 평일과 주말을 구분 W를 포함하게 입력을 해주도록 하고 W가 입력되지 않으면 예외처리.
+			try {										
 				this.setPart(part);
 			} catch (PartFormatException e) {
 				System.out.println("Incorrect Part Format. put the correct part format contain W");
@@ -85,13 +91,13 @@ public abstract class Exercise implements ExerciseInput {
 		}
 	}
 	
-	public void setExerciseSet(Scanner input) {			//0514 set을 edit하는 기능을 담당하는 함수
+	public void setExerciseSet(Scanner input) {			
 		System.out.println("Exercise set : ");
 		int set = input.nextInt();
 		this.setSet(set);
 	}
 	
-	public void setExerciseTimes(Scanner input) {		//0514 times를 edit하는 기능을 담당하는 함수
+	public void setExerciseTimes(Scanner input) {		
 		System.out.println("Exercise times : ");
 		int times = input.nextInt();
 		this.setTimes(times);
