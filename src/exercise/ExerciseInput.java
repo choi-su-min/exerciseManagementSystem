@@ -9,7 +9,11 @@ public interface ExerciseInput {
 	
 	public void setPart(String part) throws PartFormatException;
 	
+	public int getSet();
+	
 	public void setSet(int set);		
+	
+	public int getTimes();
 	
 	public void setTimes(int times);	
 	
@@ -17,7 +21,7 @@ public interface ExerciseInput {
 	
 	public void printInfo();
 	
-	public void setExercisePart(Scanner input);		//0514 ¿îµ¿¸Å´ÏÀú¿¡¼­ ²ø¾î¿È.
+	public void setExercisePart(Scanner input);		
 	
 	public void setExerciseSet(Scanner input);		
 	

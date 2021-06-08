@@ -11,6 +11,7 @@ import exercise.ExerciseKind;
 import exercise.ExerciseInput;
 import exercise.ShoulderExercise;
 
+
 public class ExerciseClassmanager implements Serializable{					//serializable을 implements해줌.
 	/**
 	 * 
@@ -118,6 +119,14 @@ public class ExerciseClassmanager implements Serializable{					//serializable을 
 		for(int i=0; i<exercises.size(); i++) {
 			exercises.get(i).printInfo();
 		}
+	}
+	
+	public int size() {							//gui ExerciseViewer에서 exercises의 size을 알 수 있게해줌.
+		return exercises.size();
+	}
+	
+	public ExerciseInput get(int index) {		//index을 받아 input되어있는 값들을 gui에서 끌어다 씀.
+		return exercises.get(index);
 	}
 	
 	public void showEditMenu() {												

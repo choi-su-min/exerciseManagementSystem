@@ -9,19 +9,23 @@ import java.io.ObjectOutputStream;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import gui.WindowFrame;
 import log.EventLogger;
 
 public class ExerciseMenuManager {
-	static EventLogger logger = new EventLogger("log.txt");
+	static EventLogger logger = new EventLogger("log.txt");		//EventLogger타입의 logger객체를 생성.
 	public static void main(String[] args) {
 		
 		Scanner input = new Scanner(System.in);
-		ExerciseClassmanager exerciseManager = getObject("exerciseManager.ser");//
-		if(exerciseManager == null)
+		ExerciseClassmanager exerciseManager = getObject("exerciseManager.ser");	// ExerciseClassmanager타입의 exerciseManager객체를 생성하고 getObject의 리턴값을 받아줌.
+		if(exerciseManager == null)													//exerciseManager가 비어있을 때 input으로 넣어줌.
 			exerciseManager = new ExerciseClassmanager(input);
+		else
+			exerciseManager.input = input;
 		
+		WindowFrame frame = new WindowFrame(exerciseManager);										//GUI 패키지에서 WindowFrame 객체를 가져옴.
 		selectMenu(input, exerciseManager);
-		putObject(exerciseManager, "exerciseManager.ser");
+		putObject(exerciseManager, "exerciseManager.ser");							//putObject method를 통해 입력한 정보들을 file에 저장해줌.
 	}
 	
 	public static void selectMenu(Scanner input, ExerciseClassmanager exerciseManager) {	
@@ -34,7 +38,7 @@ public class ExerciseMenuManager {
 				switch(num) {
 				case 1:
 					exerciseManager.addexercise();
-					logger.log("addexercise");
+					logger.log("addexercise");								
 					break;
 				case 2:
 					exerciseManager.deleteexercise();
