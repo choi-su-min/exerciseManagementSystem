@@ -2,7 +2,7 @@ package exercise;
 
 import java.util.Scanner;
 
-public abstract class SmallMuscle extends Exercise {					//0514 Shoulder와 같이 소근육 운동같은 경우는 강도를 조절해 주기위해 주말을 분리 시켜줌.
+public abstract class SmallMuscle extends Exercise {					
 	
 	public SmallMuscle(ExerciseKind Kind) {
 		super(Kind);
@@ -17,7 +17,7 @@ public abstract class SmallMuscle extends Exercise {					//0514 Shoulder와 같이 
 		System.out.println("kind : "+ ekind +", part : "+ part +", weekdayset : "+ set +", times : "+ times +", hoildayset : "+ set +", times : "+ times);
 	}
 	
-	public void setExerciseSetwithYN(Scanner input) {					//0514 setExerciseSetwithYN를 만들어서 입력함수를 분리.
+	public void setExerciseSetwithYN(Scanner input) {					
 		char answer = 'x';
 		while(answer != 'y' && answer != 'Y' && answer != 'n' && answer != 'N') {
 			System.out.println("Do you have set? on weekdays (Y/N) ");

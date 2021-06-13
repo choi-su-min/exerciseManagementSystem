@@ -9,12 +9,12 @@ public class BackExercise extends Exercise {
 	}
 	
 	public void getExerciseInput(Scanner input) {
-		setExercisePart(input);											//0514 getExerciseInput함수에서 setExercisePart를 분리시켜줌.
+		setExercisePart(input);											
 		setExerciseSetwithYN(input);
 		setExerciseTimes(input);
 	}
 	
-	public void setExerciseSetwithYN(Scanner input) {					//0514 setExerciseSetwithYN를 만들어서 입력함수를 분리.
+	public void setExerciseSetwithYN(Scanner input) {					
 		char answer = 'x';
 		while(answer != 'y' && answer != 'Y' && answer != 'n' && answer != 'N') {
 			System.out.println("Do you have set? on weekdays (Y/N) ");

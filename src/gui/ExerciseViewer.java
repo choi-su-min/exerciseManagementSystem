@@ -16,6 +16,34 @@ public class ExerciseViewer extends JPanel{
 	
 	ExerciseClassmanager exerciseManager;
 	
+	public ExerciseClassmanager getExerciseManager() {
+		return exerciseManager;
+	}
+
+	public void setExerciseManager(ExerciseClassmanager exerciseManager) {
+		this.exerciseManager = exerciseManager;
+		this.removeAll();
+		
+		DefaultTableModel model = new DefaultTableModel();	//table의 model을 생성.
+		model.addColumn("Part");	//model의 이름설정.
+		model.addColumn("Set");
+		model.addColumn("Times");
+		
+		for(int i = 0; i<exerciseManager.size(); i++) {
+			Vector row = new Vector();
+			ExerciseInput ex = exerciseManager.get(i);
+			row.add(ex.getPart());
+			row.add(ex.getSet());
+			row.add(ex.getTimes());
+			model.addRow(row);
+		}
+		
+		JTable table = new JTable(model);	//JTable의 table을 생성하여 model을 넣어줌.
+		JScrollPane sp = new JScrollPane(table);	//table의 scroll기능 설정.
+		
+		this.add(sp);	//scroll기능 추가.
+	}
+
 	public ExerciseViewer(WindowFrame frame, ExerciseClassmanager exerciseManager) {
 		this.frame = frame;
 		this.exerciseManager = exerciseManager;

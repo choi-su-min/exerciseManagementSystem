@@ -7,11 +7,18 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
+import exerciseManagementSystem.ExerciseClassmanager;
+import listeners.ExerciseAddCancelListener;
+import listeners.ExerciseAdderListener;
+
 public class ExerciseAdder extends JPanel{
 	WindowFrame frame;
 	
-	public ExerciseAdder(WindowFrame frame) {
+	ExerciseClassmanager exerciseManager;
+	
+	public ExerciseAdder(WindowFrame frame, ExerciseClassmanager exerciseManager) {
 		this.frame = frame;
+		this.exerciseManager = exerciseManager;
 		
 		JPanel panel = new JPanel();
 		panel.setLayout(new SpringLayout());	
@@ -31,11 +38,18 @@ public class ExerciseAdder extends JPanel{
 		JLabel labelTimes = new JLabel("Times: ",JLabel.TRAILING);
 		JTextField fieldTimes = new JTextField(10);
 		labelTimes.setLabelFor(fieldTimes);
+		
+		JButton saveButton = new JButton("save");		//save기능을 담당하는 버튼생성.
+		saveButton.addActionListener(new ExerciseAdderListener(fieldPart, fieldSet, fieldTimes, exerciseManager));
+		
+		JButton cancelButton = new JButton("cancel");	//cancel기능을 담당하는 버튼생성.
+		cancelButton.addActionListener(new ExerciseAddCancelListener(frame));
+		
 		panel.add(labelTimes);
 		panel.add(fieldTimes);
 		
-		panel.add(new JButton("save"));	//패널에 save버튼과 cancel버튼을 추가.
-		panel.add(new JButton("cancel"));
+		panel.add(saveButton);	//패널에 save버튼과 cancel버튼을 추가.
+		panel.add(cancelButton);
 		
 		SpringUtilities.makeCompactGrid(panel, 4, 2, 6, 6, 6, 6);	//SpringUtilities 클래스를 끌어와 사용.
 		

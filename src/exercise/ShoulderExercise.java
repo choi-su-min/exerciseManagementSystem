@@ -2,7 +2,7 @@ package exercise;
 
 import java.util.Scanner;
 
-public class ShoulderExercise extends SmallMuscle {   					//0514 어깨는 상대적으로 소근육이기 때문에 주말은 구분을 해줌.				
+public class ShoulderExercise extends SmallMuscle {   								
 	
 	protected int holidayset;							
 	protected int holidaytimes;							
@@ -12,14 +12,14 @@ public class ShoulderExercise extends SmallMuscle {   					//0514 어깨는 상대적�
 	}
 	
 	public void getExerciseInput(Scanner input) {
-		setExercisePart(input);											//0514 getExerciseInput함수에서 setExercisePart를 분리시켜줌.
+		setExercisePart(input);											
 		setExerciseSetwithYN(input);
 		setholidayExerciseSetwithYN(input);
 		setExerciseTimes(input);
 	}
 	
-	public void setholidayExerciseSetwithYN(Scanner input) {
-		char answer = 'x';
+	public void setholidayExerciseSetwithYN(Scanner input) {			
+		char answer = 'x';	
 		while(answer != 'y' && answer != 'Y' && answer != 'n' && answer != 'N') {		
 			System.out.println("Do you have holidayset? (Y/N) ");						
 			answer = input.next().charAt(0);

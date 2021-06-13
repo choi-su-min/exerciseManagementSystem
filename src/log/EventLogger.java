@@ -1,3 +1,4 @@
+
 package log;
 
 import java.io.FileWriter;
@@ -14,7 +15,7 @@ public class EventLogger {
 	LogManager logmanager;
 	Logger logger;
 	
-	public EventLogger(String fileName) {
+	public EventLogger(String fileName) {			//fileName을 parameter로 받는 EventLogger method를 만들어줌.
 		try {
 			logmanager = LogManager.getLogManager();
 			logger = logmanager.getLogger(Logger.GLOBAL_LOGGER_NAME);

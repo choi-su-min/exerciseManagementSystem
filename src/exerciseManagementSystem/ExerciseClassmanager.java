@@ -25,6 +25,16 @@ public class ExerciseClassmanager implements Serializable{					//serializable¿ª 
 		this.input = input;
 	}
 	
+	public void addexercise(String Part, int Set, int Times) {
+		ExerciseInput exercise = new ChestExercise(ExerciseKind.Chest);  
+		exercise.getExerciseInput(input);			
+		exercises.add(exercise);
+	}
+	
+	public void addexercise(ExerciseInput exercise) {			
+		exercises.add(exercise);
+	}
+	
 	public void addexercise() {
 		int kind = 0;
 		ExerciseInput exercise = null;  
